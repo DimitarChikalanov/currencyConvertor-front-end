@@ -1,3 +1,16 @@
-.navbar-title-color {
-    color: indianred;
+.nav-color {
+    background-color: #232527;
+}
+
+.navbar-brand {
+    color: #ffffff;
+}
+
+.logo {
+    width: 20px;
+    margin-left: 10px;
+}
+
+.navbar a:hover {
+    color: #9fa3a7 !important;
 }

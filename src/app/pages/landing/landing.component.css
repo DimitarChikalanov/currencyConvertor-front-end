@@ -1,4 +1,24 @@
-.display-in-center {
-    text-align: center;
-    margin-top: 5em;
+.form-container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.form-control {
+    background-color: rgba(0, 0, 0, .15);
+    color: #9fa3a7;
+}
+
+.form-control:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, .15);
+    box-shadow: none;
+}
+
+.text {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-white {
+    color: white;
 }
