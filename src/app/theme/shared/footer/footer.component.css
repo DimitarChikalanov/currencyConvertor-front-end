@@ -1,0 +1,19 @@
+footer {
+    margin-top: 15em;
+}
+
+.footer-copyright-color {
+    color: indianred;
+}
+
+.footer-social-color {
+    color: indianred;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: indianred; /* old IE */
+    background-color: indianred; /* Modern Browsers */
+}
