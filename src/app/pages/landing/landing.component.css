@@ -22,3 +22,8 @@
 .text-white {
     color: white;
 }
+
+h2, h5 {
+    margin-top: 2em;
+    text-align: center;
+}
