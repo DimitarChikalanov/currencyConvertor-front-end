@@ -4,45 +4,22 @@
             <div class="row">
                 <div class="col">
                     <label for="exchangeFrom" class="text-white">From: </label>
-                    <!-- <select class="form-control" id="exchangeFrom">
-                        <option>USD</option>
-                        <option>EUR</option>
-                        <option>BGN</option>
-                        <option>GBP</option>
-                        <option>CAD</option>
-                    </select> -->
-                    <input  
-                        nbInput
-                        fullWidth
-                        id="input-exchangeFrom"
-                        formControlName="exchangeFrom"
-                        [ngClass]="{'input-success': f.exchangeFrom.valid && f.exchangeFrom.touched, 
-                                    'input-error': f.exchangeFrom.invalid && f.exchangeFrom.dirty}"
-                        placeholder="From">
+                        <select class="form-control" formControlName="exchangeFrom">
+                          <option *ngFor="let currencyName of allCurrencyNames" [ngValue]="currencyName">{{currencyName}}</option>
+                        </select>
                 </div>
                 <div class="col">
-                    <label for="valueTo" class="text-white">To: </label>
-                    <!-- <select class="form-control" id="valueTo">
-                        <option>BGN</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select> -->
-                    <input  
-                        nbInput
-                        fullWidth
-                        id="input-exchangeTo"
-                        formControlName="exchangeTo"
-                        [ngClass]="{'input-success': f.exchangeTo.valid && f.exchangeTo.touched, 
-                                    'input-error': f.exchangeTo.invalid && f.exchangeTo.dirty}"
-                        placeholder="From">
+                    <label for="exchangeTo" class="text-white">To: </label>
+                    <select class="form-control" formControlName="exchangeTo">
+                        <option *ngFor="let currencyName of allCurrencyNames" [ngValue]="currencyName">{{currencyName}}</option>
+                    </select>
                 </div>
             </div>
-            <!-- <input class="form-control mt-3" type="text" placeholder="1"> -->
+            <br>
             <input  
                         nbInput
                         fullWidth
+                        class="form-control"
                         id="input-sumExchange"
                         formControlName="sumExchange"
                         [ngClass]="{'input-success': f.sumExchange.valid && f.sumExchange.touched, 
@@ -50,13 +27,11 @@
                         placeholder="Amount to Convert">
   
             <div class="text-center mt-3">
-                <!-- <button type="button" class="btn btn-dark">Convert</button> -->
                 <button nbButton 
                     fullWidth 
                     (click)="convertCurrency()" 
-                    [disabled]="submitted || !currencyForm.valid"
                     [class.btn-pulse]="submitted" 
-                    class="btn btn-primary button-disabled"
+                    class="btn btn-primary"
                     >Convert
             </button>
 

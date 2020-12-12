@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import Currency from 'src/app/entities/Currency';
+import CurrencyExchange from 'src/app/entities/CurrencyExchange';
 import { CurrencyService } from 'src/app/services/currency.service';
 
 @Component({
@@ -11,11 +11,12 @@ import { CurrencyService } from 'src/app/services/currency.service';
 })
 export class CurrencyComponent implements OnInit {
   @Input('currency')
-  currency: Currency;
+  currency: CurrencyExchange;
   submitted: boolean = false;
   // the result of the currency exchange
   exchangeResult: number = 0;
   currencyForm: FormGroup;
+  allCurrencyNames: String[] = [];
 
   constructor(private formBuilder: FormBuilder, private currencyService: CurrencyService, private router: Router) { }
 
@@ -25,6 +26,8 @@ export class CurrencyComponent implements OnInit {
       exchangeTo: ['', [Validators.nullValidator]],
       sumExchange: ['', [Validators.nullValidator]]
     })
+
+    this.allCurrencyNames = this.getCurrencies();
   }
 
   convertCurrency() {
@@ -34,6 +37,18 @@ export class CurrencyComponent implements OnInit {
       console.log(this.currencyForm.value);
       console.log(this.currency);
     });
+  }
+
+  // subscribe to the data from the GET request
+  getCurrencies(): String[] {
+    this.currencyService.getAllCurrencies().subscribe((data) => {
+      // keep all currency names, for example ["BGN", "EUR"] etc.
+      data.forEach((oneCurrency) => {
+        this.allCurrencyNames.push(oneCurrency?.nameOfValue);
+      })
+    });
+
+    return this.allCurrencyNames;
   }
 
   get f() { return this.currencyForm.controls }
