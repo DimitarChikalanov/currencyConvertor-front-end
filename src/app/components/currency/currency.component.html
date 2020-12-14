@@ -1,21 +1,27 @@
 <div class="container">
     <div class="form-container">
+        <!-- Currency Form. -->
         <form [formGroup]="currencyForm" class="mt-5">
             <div class="row">
                 <div class="col">
+                    <!-- Currency to exchange from. -->
                     <label for="exchangeFrom" class="text-white">From: </label>
                         <select class="form-control" formControlName="exchangeFrom">
                           <option *ngFor="let currencyName of allCurrencyNames" [ngValue]="currencyName">{{currencyName}}</option>
                         </select>
                 </div>
                 <div class="col">
+                    <!-- Currency to exchange to. -->
                     <label for="exchangeTo" class="text-white">To: </label>
                     <select class="form-control" formControlName="exchangeTo">
                         <option *ngFor="let currencyName of allCurrencyNames" [ngValue]="currencyName">{{currencyName}}</option>
                     </select>
                 </div>
             </div>
+            <!-- Line Break. -->
             <br>
+
+            <!-- How much money to exchange. -->
             <input  
                         nbInput
                         fullWidth
@@ -24,20 +30,24 @@
                         formControlName="sumExchange"
                         [ngClass]="{'input-success': f.sumExchange.valid && f.sumExchange.touched, 
                                     'input-error': f.sumExchange.invalid && f.sumExchange.dirty}"
-                        placeholder="Amount to Convert">
-  
+                        placeholder="Amount to Convert"
+            >
+            
+            <!-- Button. Starts the conversion on click. -->
             <div class="text-center mt-3">
                 <button nbButton 
                     fullWidth 
                     (click)="convertCurrency()" 
                     [class.btn-pulse]="submitted" 
                     class="btn btn-primary"
-                    >Convert
+                >Convert
             </button>
 
             <div class="text-center mt-3">
+                <!-- Line Breaks. -->
                 <br>
                 <br>
+                <!-- Displays the converted amount. -->
                 <label for="currency" class="text-white">Converted amount: {{currency}}</label>
             </div>
             </div>

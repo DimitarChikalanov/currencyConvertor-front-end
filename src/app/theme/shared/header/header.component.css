@@ -1,7 +1,9 @@
+/* The background-color of the navbar. */
 .nav-color {
     background-color: #232527;
 }
 
+/* The color of the brand. */
 .navbar-brand {
     color: #ffffff;
 }
