@@ -2,6 +2,7 @@
     <div class="card card-container" style="margin-top: 4em;">
       <h3 style="text-align: center;">Create an account</h3>
       <form
+        class="form-control"
         *ngIf="!isSuccessful"
         name="form"
         (ngSubmit)="f.form.valid && onSubmit()"

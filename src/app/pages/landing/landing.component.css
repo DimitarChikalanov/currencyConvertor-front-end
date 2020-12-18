@@ -23,7 +23,12 @@
     color: white;
 }
 
-h2, h5 {
+.centered-white-text {
     margin-top: 2em;
     text-align: center;
+    color: white;
+}
+
+.list-no-decoration {
+    list-style-type: none;
 }
