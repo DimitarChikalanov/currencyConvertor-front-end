@@ -55,9 +55,7 @@ export class CurrencyComponent implements OnInit {
     // the form is submitted
     this.submitted = true;
     this.currencyService.changeCurrency(this.currencyForm.value).subscribe((data) => {
-      this.currency = data;
-      console.log(this.currencyForm.value);
-      console.log(this.currency);
+      this.currency = data; 
     });
   }
 

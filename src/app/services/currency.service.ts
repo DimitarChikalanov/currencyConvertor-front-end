@@ -5,9 +5,9 @@ import CurrencyExchange from '../entities/CurrencyExchange';
 import CurrencyDetails from '../entities/CurrencyDetails';
 
 /* The URL for the currency exchange. */
-const CHANGE_CURRENCY_URL = 'http://localhost:8587/api/v1/change';
+const CHANGE_CURRENCY_URL = 'http://localhost:8088/api/v1/change';
 /* The URL for the currency names. */
-const ALL_CURRENCIES_URL = 'http://localhost:8587/api/v1/currencies';
+const ALL_CURRENCIES_URL = 'http://localhost:8088/api/v1/currencies';
 
 /**
  *  Currency Service. 
@@ -32,8 +32,8 @@ export class CurrencyService {
    * 
    * @returns the actual value of the exchange
    */
-  changeCurrency(currency: CurrencyExchange): Observable<CurrencyExchange> {
-    return this.httpClient.post<CurrencyExchange>(`${CHANGE_CURRENCY_URL}`, currency);
+  changeCurrency(currencyExchange: CurrencyExchange): Observable<CurrencyExchange> {
+    return this.httpClient.post<CurrencyExchange>(`${CHANGE_CURRENCY_URL}`, currencyExchange);
   }
 
   /**

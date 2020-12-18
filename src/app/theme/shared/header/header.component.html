@@ -1,8 +1,30 @@
-<!-- Navbar. Displayed at the top of the page. (header)-->
-<!-- Image and text -->
-<nav class="navbar nav-color w-100">
-    <a class="navbar-brand text-decoration-none" href="#">
-        <img src="../../../../assets/images/convert-01.png" width="25" height="25" style="margin-right: 1em; margin-bottom: 4px;">
-        Currency convert
-    </a>
+<nav class="navbar navbar-expand-lg nav-color">
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"  aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="home" routerLinkActive="active">Currency Convertor</a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="login" routerLinkActive="active" *ngIf="!isLoggedIn">Login</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="register" routerLinkActive="active" *ngIf="!isLoggedIn">Register</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" (click)="logout()" routerLinkActive="active" *ngIf="isLoggedIn">Logout</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <!-- Links when logged in. -->
+        </ul>
+    </form>
+  </div>
 </nav>
