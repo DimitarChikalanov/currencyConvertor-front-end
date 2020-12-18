@@ -9,3 +9,42 @@
     background-color: white;
     border-color: white;
 }
+
+.centered-white-text {
+    color:white;
+}
+
+h1 {
+    margin-top: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.button-disabled:disabled {
+    cursor: not-allowed;
+}
+  
+.input-error {
+    border-bottom: solid 1.60px red !important;
+    border-right: solid 1.60px red !important;
+    border-left: solid 1.60px red !important;
+    border-top: solid 1.60px red !important;
+}
+    
+.input-success {
+    border-bottom: solid 1.60px green !important;
+    border-right: solid 1.60px green !important;
+    border-left: solid 1.60px green !important;
+    border-top: solid 1.60px green !important;
+}
+
+.form-half-width {
+    width: 50%;
+}
+
+.center-all-forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -8,6 +8,13 @@
     color: #ffffff !important;
 }
 
+.app-logo-image {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    margin-top: 3px;
+}
+
 .logo {
     width: 20px;
     margin-left: 10px;

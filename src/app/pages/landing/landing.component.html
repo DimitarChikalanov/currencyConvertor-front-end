@@ -4,18 +4,31 @@
 <div class="container centered-white-text" *ngIf="!isLoggedIn">
     <h5>You are not logged in.</h5>
     <h6>Registered users have more benefits:</h6>
+    <!-- List of benefits. -->
     <ul class="list-no-decoration">
         <li>1. Personal user profile.</li>
         <li>2. Conversion history.</li>
     </ul>
-    <!-- Render component with exchange history. -->
-    <app-currency></app-currency>
+    <!-- Button. Starts the conversion on click. -->
+    <div class="text-center mt-3">
+        <!-- Register Button. -->
+        <a [routerLink]="['/register']"> 
+            <button class="btn">Register Now</button>
+        </a>
+
+        <!-- Line. -->
+        <hr />
+
+        <!-- Render component with exchange history. -->
+        <app-currency></app-currency>
+    </div>
 </div>
 
 <!-- User is logged in. -->
 <div class="container centered-white-text" *ngIf="isLoggedIn">
     <h2>Fastest way of converting money!</h2>
     <h5>Start converting now!</h5>
+
     <!-- Render component with exchange history. -->
     <app-currency></app-currency>
 </div>

@@ -32,3 +32,21 @@
 .list-no-decoration {
     list-style-type: none;
 }
+
+.btn {
+    background-color: indianred;
+    border-color: indianred;
+    color: white;
+}
+
+.btn:hover {
+    color: indianred;
+    background-color: white;
+    border-color: white;
+}
+
+hr {
+    background-color: indianred; 
+    height: 1px; 
+    border: 0;
+}
