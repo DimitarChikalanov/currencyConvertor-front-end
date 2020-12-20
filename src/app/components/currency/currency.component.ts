@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/auth/_services/token-storage.service';
 import CurrencyExchange from 'src/app/entities/CurrencyExchange';
 import { CurrencyService } from 'src/app/services/currency.service';
 
@@ -25,6 +26,8 @@ export class CurrencyComponent implements OnInit {
   currencyForm: FormGroup;
   /* Names of the currencies. */
   allCurrencyNames: String[] = [];
+  /* Is the user logged in */
+  isLoggedIn = false;
 
   /**
    *  @constructor
@@ -34,15 +37,23 @@ export class CurrencyComponent implements OnInit {
    *  @param currencyService
    *  @param router
    */
-  constructor(private formBuilder: FormBuilder, private currencyService: CurrencyService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, 
+    private currencyService: CurrencyService, 
+    private router: Router, 
+    private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+
+    /* Checks if the user is logged in or not. */
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
     this.currencyForm = this.formBuilder.group({
       exchangeFrom: ['', [Validators.nullValidator]],
       exchangeTo: ['', [Validators.nullValidator]],
       sumExchange: ['', [Validators.nullValidator]]
     })
 
+    /* Fills the currency names in the dropdown. */
     this.allCurrencyNames = this.getCurrencies();
   }
 
@@ -54,9 +65,18 @@ export class CurrencyComponent implements OnInit {
   convertCurrency() {
     // the form is submitted
     this.submitted = true;
-    this.currencyService.changeCurrency(this.currencyForm.value).subscribe((data) => {
-      this.currency = data; 
-    });
+    
+    // if the user is logged in (sent request which requires authentication)
+    if (this.isLoggedIn = !!this.tokenStorageService.getToken()) {
+      this.currencyService.changeCurrencyLoggedIn(this.currencyForm.value).subscribe((data) => {
+        this.currency = data; 
+      });
+    } else {
+      // if the user is not logged in (sent request which does not require authentication)
+      this.currencyService.changeCurrencyNotLoggedIn(this.currencyForm.value).subscribe((data) => {
+        this.currency = data; 
+      });
+    }
   }
 
   /**

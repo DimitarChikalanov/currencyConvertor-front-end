@@ -11,7 +11,8 @@ export class LandingComponent implements OnInit {
 
   isLoggedIn = false;
 
-  constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
+  constructor(private tokenStorageService: TokenStorageService, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();

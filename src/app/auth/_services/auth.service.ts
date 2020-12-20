@@ -16,7 +16,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient, 
+    public jwtHelper: JwtHelperService) { }
 
   public isAuthenticated(): boolean {
 
