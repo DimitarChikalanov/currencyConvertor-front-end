@@ -1,9 +1,11 @@
+/* Styles the button. */
 .btn {
     background-color: indianred;
     border-color: indianred;
     color: white;
 }
 
+/* Styles on a mouse hover over the button. */
 .btn:hover {
     color: indianred;
     background-color: white;

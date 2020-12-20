@@ -8,6 +8,7 @@
     color: #ffffff !important;
 }
 
+/* Styles the logo of the application. */
 .app-logo-image {
     width: 25px;
     height: 25px;
@@ -20,15 +21,18 @@
     margin-left: 10px;
 }
 
+/* Activates on mouse hover over links in navbar. */
 .navbar a:hover {
     color: #9fa3a7 !important;
 }
 
+/* Styles the links in the navbar. */
 .nav-link {
     text-decoration: none;
     color: indianred;
 }
 
+/* Styles the toggler in the navbar (it shows only in mobile view). */
 .navbar .navbar-toggler .navbar-toggler-icon {
     color: white !important;
     width: 24px;

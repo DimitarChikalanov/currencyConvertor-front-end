@@ -1,16 +1,20 @@
+/* Styling for the whole footer. */
 footer {
     margin-top: 20em;
     background-color:#232527;
 }
 
+/* Color of the copyright sign. */
 .footer-copyright-color {
     color: indianred;
 }
 
+/* Color of social links in footer. */
 .footer-social-color {
     color: indianred;
 }
 
+/* Color of an hr line. */
 hr {
     border: none;
     height: 1px;
