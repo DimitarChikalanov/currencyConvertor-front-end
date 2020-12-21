@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../_services/auth.service';
 import { EMAIL_PATTERN, NAME_PATTERN, PASSWORD_PATTERN } from '../../constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,9 @@ export class RegisterComponent implements OnInit {
   user: any = {};
   submitted = false;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) { }
+  constructor(private authService: AuthService, 
+    private fb: FormBuilder,
+    private router: Router) { }
 
   get f() { return this.registerForm.controls }
 
@@ -39,11 +42,18 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+
+        this.redirectHomeAfterRegistration();
       },
       err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     );
+  }
+
+  // After a successful registration, redirect the user to the home page
+  redirectHomeAfterRegistration(){
+    this.router.navigate(['/login']);
   }
 }

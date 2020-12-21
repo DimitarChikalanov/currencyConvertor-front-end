@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
+import User from 'src/app/entities/User';
 
 const AUTH_API = 'http://localhost:8088/api/auth/';
 
@@ -27,7 +28,7 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-  login(credentials): Observable<any> {
+  login(credentials: User): Observable<any> {
     
     return this.http.post(AUTH_API + 'signin', {
       username: credentials.username,
@@ -35,14 +36,8 @@ export class AuthService {
     }, httpOptions);
   }
 
-  register(user): Observable<any> {
+  register(user: User): Observable<any> {
 
-    return this.http.post(AUTH_API + 'signup', {
-      username: user.username,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      password: user.password
-    }, httpOptions);
+    return this.http.post(AUTH_API + 'signup', user, httpOptions);
   }
 }

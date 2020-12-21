@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../_services/auth.service';
 import { TokenStorageService } from '../../_services/token-storage.service';
 
@@ -19,7 +20,10 @@ export class LoginComponent implements OnInit {
 
   get f() { return this.loginForm.controls }
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private fb: FormBuilder) { }
+  constructor(private authService: AuthService, 
+    private tokenStorage: TokenStorageService, 
+    private fb: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -45,7 +49,7 @@ export class LoginComponent implements OnInit {
         this.submitted = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        this.redirectHomeAfterLogin();
       },
       err => {
         this.errorMessage = err.error.message;
@@ -54,7 +58,10 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  reloadPage() {
+  // After a successful login, redirect the user to the home page
+  redirectHomeAfterLogin(){
     window.location.reload();
+
+    window.location.replace("home");
   }
 }

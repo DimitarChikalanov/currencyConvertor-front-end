@@ -4,14 +4,8 @@ import { Observable } from 'rxjs';
 import CurrencyExchange from '../entities/CurrencyExchange';
 import CurrencyDetails from '../entities/CurrencyDetails';
 
-/* The URL for the currency exchange. (Requires JWT token) */
-const CHANGE_CURRENCY_URL_LOGGED_IN = 'http://localhost:8088/api/v1/change';
-
-/* The URL for the currency names. */
-const ALL_CURRENCIES_URL = 'http://localhost:8088/api/v1/currencies';
-
-/* The URL for the currency exchange (Does not require JWT token). */
-const CHANGE_CURRENCY_URL_NOT_LOGGED_IN = 'http://localhost:8088/api/v1/convert';
+/* Base URL for currency. */
+const BASE_URL = 'http://localhost:8088/api/v1';
 
 /**
  *  Currency Service. 
@@ -32,25 +26,27 @@ export class CurrencyService {
   /**
    * Sends a POST request to the backend.
    * Uses the CHANGE_CURRENCY_URL.
-   * User must be logged in.
+   * User must be logged in (requires JWT token).
    * @param currency - sends a CurrencyExchange entity to the backend
    * 
    * @returns the actual value of the exchange
    */
   changeCurrencyLoggedIn(currencyExchange: CurrencyExchange): Observable<CurrencyExchange> {
-    return this.httpClient.post<CurrencyExchange>(`${CHANGE_CURRENCY_URL_LOGGED_IN}`, currencyExchange);
+    
+    return this.httpClient.post<CurrencyExchange>(`${BASE_URL}/change`, currencyExchange);
   }
 
     /**
    * Sends a POST request to the backend.
    * Uses the CHANGE_CURRENCY_URL.
-   * User does NOT need to be logged in.
+   * User does NOT need to be logged in (Does not require JWT token).
    * @param currency - sends a CurrencyExchange entity to the backend
    * 
    * @returns the actual value of the exchange
    */
   changeCurrencyNotLoggedIn(currencyExchange: CurrencyExchange): Observable<CurrencyExchange> {
-    return this.httpClient.post<CurrencyExchange>(`${CHANGE_CURRENCY_URL_NOT_LOGGED_IN}`, currencyExchange);
+
+    return this.httpClient.post<CurrencyExchange>(`${BASE_URL}/convert`, currencyExchange);
   }
 
   /**
@@ -60,6 +56,7 @@ export class CurrencyService {
    * @returns a list of Currencies
    */
   getAllCurrencies(): Observable<CurrencyDetails[]> {
-    return this.httpClient.get<CurrencyDetails[]>(`${ALL_CURRENCIES_URL}`);
+
+    return this.httpClient.get<CurrencyDetails[]>(`${BASE_URL}/currencies`);
   }
 }
