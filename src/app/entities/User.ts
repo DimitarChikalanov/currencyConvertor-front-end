@@ -7,7 +7,7 @@
  *  @param email - the email of the user
  *  @param password - the password of the user
  */
-interface User {
+class User {
     username: string;
     firstName: string;
     lastName: string;

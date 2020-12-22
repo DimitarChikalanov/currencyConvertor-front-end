@@ -6,6 +6,7 @@ import { CurrencyComponent } from './components/currency/currency.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,8 @@ import { RouterModule } from '@angular/router';
     CurrencyComponent,
     LoginComponent,
     RegisterComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UpdateUserComponent
   ],
   /* Imports different modules. 
    * Each module adds a different functionality.

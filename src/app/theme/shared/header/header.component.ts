@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from 'src/app/auth/_services/token-storage.service';
+import User from 'src/app/entities/User';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,8 @@ export class HeaderComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username: string;
+
+  user: User;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 

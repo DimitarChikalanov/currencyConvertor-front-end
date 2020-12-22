@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import CurrencyExchange from '../entities/CurrencyExchange';
 import CurrencyDetails from '../entities/CurrencyDetails';
 
@@ -25,7 +26,7 @@ export class CurrencyService {
 
   /**
    * Sends a POST request to the backend.
-   * Uses the CHANGE_CURRENCY_URL.
+   * Uses the BASE_URL/change.
    * User must be logged in (requires JWT token).
    * @param currency - sends a CurrencyExchange entity to the backend
    * 
@@ -38,7 +39,7 @@ export class CurrencyService {
 
     /**
    * Sends a POST request to the backend.
-   * Uses the CHANGE_CURRENCY_URL.
+   * Uses the BASE_URL/convert.
    * User does NOT need to be logged in (Does not require JWT token).
    * @param currency - sends a CurrencyExchange entity to the backend
    * 
@@ -51,7 +52,7 @@ export class CurrencyService {
 
   /**
    * Sends a GET request to the backend.
-   * Uses the ALL_CURRENCIES_URL.
+   * Uses the BASE_URL/currencies.
    * 
    * @returns a list of Currencies
    */

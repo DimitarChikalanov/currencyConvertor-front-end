@@ -5,31 +5,31 @@
         </div>
     </div>
     <div class="row space-top">
-        <div class="col-md-4">
+        <div class="col-md-4 indianred-text-color">
             <span class="field-label">
-                <label class="label centered-white-text" for="user-username">Username:</label>
+                <label class="label" for="user-username">Username:</label>
             </span>
-            <!-- <p>{{user?.username}}</p> -->
+            <p class="centered-white-text">{{user?.username}}</p>
 
             <span class="field-label">
-                <label class="label centered-white-text" for="user-firstName">First Name:</label>
+                <label class="label" for="user-firstName">First Name:</label>
             </span>
-            <!-- <p>{{user?.firstName}}</p> -->
+            <p class="centered-white-text">{{user?.firstName}}</p>
 
             <span class="field-label">
-                <label class="label centered-white-text" for="user-lastName">Last Name:</label>
+                <label class="label" for="user-lastName">Last Name:</label>
             </span>
-            <!-- <p>{{user?.lastName}}</p> -->
+            <p class="centered-white-text">{{user?.lastName}}</p>
 
             <span class="field-label">
-                <label class="label centered-white-text" for="user-password">Password:</label>
-            </span>
-            <!-- <p>{{user?.lastName}}</p> -->
-
-            <span class="field-label centered-white-text">
                 <label class="label" for="user-email">Email:</label>
             </span>
-            <!-- <p>{{employee?.email}}</p> -->
+            <p class="centered-white-text">{{user?.email}}</p>
+
+            <!-- Update Profile Button. -->
+            <a [routerLink]="['/update']"> 
+                <button class="btn">Update Profile</button>
+            </a>
         </div>
     </div>
 </div>
