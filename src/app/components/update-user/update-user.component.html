@@ -1,7 +1,9 @@
 <!-- Update Profile Page. -->
 <div class="col-md-6 offset-md-3">
+
     <!-- Title. -->
     <h1>Update Profile</h1>
+
     <!-- Update Form. -->
     <form (ngSubmit)="updateUser()">
         <!-- First Name Input Field. -->
@@ -47,11 +49,14 @@
         <!-- Submit Form Button. (Update)-->
         <button class="btn btn-success" type="submit">Update</button>
 
+        <!-- Line Breaks. -->
         <br>
         <br>
 
+        <!-- Successfully updated profile. -->
         <div class="alert alert-success" *ngIf="updateSuccess">
             Successfully updated user profile!
         </div>
+
     </form>
 </div>

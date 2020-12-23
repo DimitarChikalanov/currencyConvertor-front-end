@@ -1,9 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TokenStorageService } from 'src/app/auth/_services/token-storage.service';
+
+/* Entities. */
 import CurrencyExchange from 'src/app/entities/CurrencyExchange';
-import { CurrencyService } from 'src/app/services/currency.service';
+
+/* Services. */
+import { TokenStorageService } from 'src/app/auth/_services/token-storage.service';
+import { CurrencyService } from 'src/app/services/currency-service/currency.service';
 
 /**
  *  Currency Component. 

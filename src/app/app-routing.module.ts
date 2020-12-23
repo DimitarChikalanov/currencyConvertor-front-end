@@ -1,5 +1,8 @@
+/* Modules. */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+/* Components. */
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';

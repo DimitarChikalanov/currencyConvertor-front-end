@@ -9,8 +9,15 @@ import { TokenStorageService } from 'src/app/auth/_services/token-storage.servic
 })
 export class LandingComponent implements OnInit {
 
+  /* Is the user logged in. */
   isLoggedIn = false;
 
+  /**
+   * @constructor 
+   *
+   * @param tokenStorageService 
+   * @param router 
+   */
   constructor(private tokenStorageService: TokenStorageService, 
     private router: Router) { }
 
