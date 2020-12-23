@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import CurrencyExchange from '../entities/CurrencyExchange';
-import CurrencyDetails from '../entities/CurrencyDetails';
+import CurrencyExchange from '../../entities/CurrencyExchange';
+import CurrencyDetails from '../../entities/CurrencyDetails';
 
 /* Base URL for currency. */
 const BASE_URL = 'http://localhost:8088/api/v1';

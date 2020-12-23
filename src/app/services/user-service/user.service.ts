@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import User from '../entities/User';
+import User from '../../entities/User';
 
 /* Base URL for user profile info. */
 const BASE_URL = "http://localhost:8088/api/v1";
