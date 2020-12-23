@@ -11,14 +11,21 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UpdateUserComponent implements OnInit {
 
+  /* User instance. */
   user: User = new User();
-  id: number;
   updateSuccess = false;
 
+  /**
+   * @constructor
+   * 
+   * @param userService 
+   * @param route 
+   */
   constructor(private userService: UserService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    /* Loads user information from the backend. */
     this.route.params.subscribe(data => {
       this.userService.getUserProfile().subscribe((data) => {
         this.user = data;
@@ -26,6 +33,7 @@ export class UpdateUserComponent implements OnInit {
     })
   }
 
+  /* Updates the user profile. (sends a PUT request to the backend) */
   updateUser() {
     this.userService.updateUserProfile(this.user)
       .subscribe(data => {

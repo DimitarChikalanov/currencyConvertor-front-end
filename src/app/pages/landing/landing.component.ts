@@ -15,6 +15,7 @@ export class LandingComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    /* Checks if a token is present - if a token is present, that means the user is logged in. */
     this.isLoggedIn = !!this.tokenStorageService.getToken();
   }
 

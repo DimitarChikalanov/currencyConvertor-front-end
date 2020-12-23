@@ -12,6 +12,11 @@ const BASE_URL = "http://localhost:8088/api/v1";
 })
 export class UserService {
   
+  /**
+   * @constructor
+   * 
+   * @param httpClient - makes requests
+   */
   constructor(private httpClient: HttpClient) { }
 
   /**

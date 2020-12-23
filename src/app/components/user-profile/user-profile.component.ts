@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import User from 'src/app/entities/User';
 import { Subscription } from 'rxjs';
-import { TokenStorageService } from 'src/app/auth/_services/token-storage.service';
-import { AuthService } from 'src/app/auth/_services/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,15 +12,26 @@ import { AuthService } from 'src/app/auth/_services/auth.service';
 export class UserProfileComponent implements OnInit, OnDestroy {
 
   private subscriptions = new Subscription();
+  /* User instance. */
   user: User;
+  /* User's roles. */
   roles = [];
 
+  /**
+   * @constructor
+   * 
+   * @param route 
+   * @param userService - makes requests to the backend
+   * @param router - redirects the user to different pages
+   */
   constructor(private route: ActivatedRoute, 
     private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
+    /* Creates a new user instance which will carry the information from the GET request. */
     this.user = new User();
+    /* GET request to the backend. */
     this.subscriptions.add(this.userService.getUserProfile().subscribe(data => {
       this.user = data;
     }));

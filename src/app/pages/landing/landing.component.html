@@ -2,13 +2,17 @@
 
 <!-- User is not logged in. -->
 <div class="container centered-white-text" *ngIf="!isLoggedIn">
+
+    <!-- Titles. -->
     <h5>You are not logged in.</h5>
     <h6>Registered users have more benefits:</h6>
+
     <!-- List of benefits. -->
     <ul class="list-no-decoration">
         <li>1. Personal user profile.</li>
         <li>2. Conversion history.</li>
     </ul>
+
     <!-- Button. Starts the conversion on click. -->
     <div class="text-center mt-3">
         <!-- Register Button. -->
@@ -22,10 +26,13 @@
         <!-- Render component with exchange history. -->
         <app-currency></app-currency>
     </div>
+
 </div>
 
 <!-- User is logged in. -->
 <div class="container centered-white-text" *ngIf="isLoggedIn">
+    
+    <!-- Titles. -->
     <h2>Fastest way of converting money!</h2>
     <h5>Start converting now!</h5>
 

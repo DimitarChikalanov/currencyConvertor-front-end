@@ -20,7 +20,7 @@ export class CurrencyService {
   /**
    * @constructor
    * 
-   * @param httpClient 
+   * @param httpClient - makes requests
    */
   constructor(private httpClient: HttpClient) { }
 

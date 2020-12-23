@@ -1,35 +1,62 @@
+<!-- Navigation Bar. -->
 <nav class="navbar navbar-expand-lg nav-color">
-  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"  aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <!-- Navbar toggler Button. -->
+  <button class="navbar-toggler" 
+          type="button" 
+          (click)="isCollapsed = !isCollapsed" 
+          data-toggle="collapse"  
+          aria-controls="navbarTogglerDemo03" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
   </button>
+
+  <!-- App Icon. (convertor image.) -->
   <img class="app-logo-image" src="../../../../assets/images/convert-01.png">
+
+  <!-- App title and link to the home page. -->
   <a class="navbar-brand" routerLink="home" routerLinkActive="active">Currency Convertor</a>
+
+  <!-- Navigation Bar toggler. -->
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03" [ngbCollapse]="!isCollapsed">
+
+    <!-- Links. -->
+    <!-- VISIBLE WHEN *NOT* LOGGED IN. -->
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+      <!-- Nav link to the home page. -->
       <li class="nav-item active">
         <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
       </li>
       
+      <!-- Nav link to the login page. -->
       <li class="nav-item">
         <a class="nav-link" routerLink="login" routerLinkActive="active" *ngIf="!isLoggedIn">Login</a>
       </li>
 
+      <!-- Nav link to the register page. -->
       <li class="nav-item">
         <a class="nav-link" routerLink="register" routerLinkActive="active" *ngIf="!isLoggedIn">Register</a>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/" (click)="logout()" routerLinkActive="active" *ngIf="isLoggedIn">Logout</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" routerLink="profile" routerLinkActive="active" *ngIf="isLoggedIn">Profile</a>
-      </li>
     </ul>
+
+    <!-- Links. -->
+    <!-- VISIBLE WHEN *LOGGED IN*. -->
     <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <!-- Links when logged in. -->
+          
+          <!-- Nav link to the default page. -->
+          <!-- Logs out the user. -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" (click)="logout()" routerLinkActive="active" *ngIf="isLoggedIn">Logout</a>
+          </li>
+
+          <!-- Nav link to the user's profile page. -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="profile" routerLinkActive="active" *ngIf="isLoggedIn">Profile</a>
+          </li>
         </ul>
     </form>
+
   </div>
 </nav>
