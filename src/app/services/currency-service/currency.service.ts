@@ -37,7 +37,7 @@ export class CurrencyService {
     return this.httpClient.post<CurrencyExchange>(`${BASE_URL}/change`, currencyExchange);
   }
 
-    /**
+  /**
    * Sends a POST request to the backend.
    * Uses the BASE_URL/convert.
    * User does NOT need to be logged in (Does not require JWT token).
