@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import DeleteCurrency from 'src/app/entities/DeleteCurrency';
 import NewCurrency from 'src/app/entities/NewCurrency';
 
 /* Base URL for admin functionality with currency. */
@@ -26,5 +27,10 @@ export class AdminService {
   addNewCurrency(newCurrency: NewCurrency): Observable<NewCurrency> {
 
     return this.httpClient.post<NewCurrency>(`${BASE_URL}/update`, newCurrency);
+  }
+
+  deleteCurrency(deleteCurrency: DeleteCurrency): Observable<Object> {
+
+    return this.httpClient.delete(`${BASE_URL}/delete`);
   }
 }

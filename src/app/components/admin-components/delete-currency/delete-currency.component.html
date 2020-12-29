@@ -1,0 +1,43 @@
+<!-- Delete Currency Component. -->
+<div class="container">
+    <div class="form-container">
+
+        <!-- Title. -->
+        <h1>Delete currency</h1>
+        
+        <!-- Currency Form. -->
+        <form [formGroup]="deleteCurrencyForm" class="mt-5">
+            <div class="row">
+                
+                <div class="col">
+                    
+                    <!-- Currency Name label. -->
+                    <label for="deleteCurrencyName" class="text-white">Choose currency to Delete: </label>
+
+                    <!-- Currency to delete. -->
+                    <select class="form-control" formControlName="deleteCurrencyName">
+                        <option *ngFor="let currencyName of allCurrencyNames" [ngValue]="currencyName">{{currencyName}}</option>
+                    </select>
+
+                </div>
+
+            </div>
+            
+            <!-- Line Break. -->
+            <br>
+            
+            <!-- Button. Starts the deletion on click. -->
+            <div class="text-center mt-3">
+                <button nbButton 
+                    fullWidth 
+                    (click)="deleteCurrency()" 
+                    [class.btn-pulse]="submitted" 
+                    class="btn btn-primary"
+                    >Delete
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

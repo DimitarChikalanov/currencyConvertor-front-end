@@ -51,6 +51,7 @@ export class CurrencyComponent implements OnInit {
     /* Checks if the user is logged in or not. */
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
+    /* Currency form and validation. */
     this.currencyForm = this.formBuilder.group({
       exchangeFrom: ['', [Validators.nullValidator]],
       exchangeTo: ['', [Validators.nullValidator]],

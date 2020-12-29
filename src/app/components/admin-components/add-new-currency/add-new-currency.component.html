@@ -1,0 +1,89 @@
+<!-- Add new Currency Page. -->
+<div class="col-md-12">
+
+    <!-- Title. -->
+    <h1 class="centered-white-text">Add New Currency</h1>
+  
+    <!-- Add new Currency Form. -->
+    <div [formGroup]="addNewCurrencyForm" aria-labelledby="title">
+  
+      <!-- Currency Name field. -->
+      <div class="form-control-group center-all-forms">
+  
+        <!-- Currency Name label. -->
+        <span class="label-with-link">
+          <label class="centered-white-text" for="input-currencyName">Currency Name:</label>
+        </span>
+  
+        <!-- Currency Name input. -->
+        <input
+                nbInput
+                class="form-control form-half-width"
+                autofocus
+                fieldSize="large"
+                id="input-name"
+                formControlName="currencyName"
+                [ngClass]="{'input-success': f.currencyName.valid && f.currencyName.touched, 
+                            'input-error': f.currencyName.invalid && f.currencyName.dirty}"
+                placeholder="Currency Name">
+  
+        <!-- Currency Name Required Error. -->
+        <div class="alert alert-danger form-half-width" *ngIf="f.currencyName.touched && f.currencyName.errors?.required">
+          This field is required.
+        </div>
+  
+      </div>
+  
+      <!-- Line Break. -->
+      <br>
+  
+      <!-- Rate Field. -->
+      <div class="form-control-group center-all-forms">
+  
+        <!-- Rate Label. -->
+        <span class="label-with-link">
+          <label class="centered-white-text" for="input-rate">Rate:</label>
+        </span>
+  
+        <!-- Rate Input. -->
+        <input  nbInput
+                autofocus
+                class="form-control form-half-width"
+                fieldSize="large"
+                id="input-rate"
+                formControlName="rate"
+                [ngClass]="{'input-success': f.rate.valid && f.rate.touched, 
+                            'input-error': f.rate.invalid && f.rate.dirty}"
+                placeholder="Rate">
+  
+        <!-- Rate Required Error. -->
+        <div class="alert alert-danger form-half-width" *ngIf="f.rate.touched && f.rate.errors?.required">
+          This field is required.
+        </div>
+      </div>
+  
+      <!-- Line Break. -->
+      <br>
+    
+      <!-- Register button. -->
+      <div class="center-all-forms">
+        <button nbButton 
+                fullWidth status="primary" 
+                [disabled]="isSuccessful || !addNewCurrencyForm.valid"
+                [class.btn-pulse]="isSuccessful" 
+                (click)="addCurrency()" 
+                class="btn button-disabled">
+                Add new currency
+        </button>
+      </div>
+  
+      <!-- Line breaks. -->
+      <br>
+      <br>
+  
+      <!-- Successful adding a new currency. -->
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        You successfully added a new currency!
+      </div>
+    </div>
+  </div>
