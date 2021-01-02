@@ -1,6 +1,12 @@
+<!-- Exchange History. -->
+
+<!-- Exchange History Table. -->
 <table class="table table-striped table-dark">
 
+    <!-- Table Head. -->
     <thead>
+
+      <!-- Table Columns. -->
       <tr>
         <th scope="col">№</th>
         <th scope="col">Converted From</th>
@@ -11,14 +17,23 @@
       </tr>
     </thead>
 
+    <!-- Table Body. -->
     <tbody>
 
+      <!-- For each History list. -->
+      <!-- Display each history on a separate row. -->
       <tr *ngFor="let currentHistory of historyList; let i = index">
+        <!-- Current index. -->
         <th scope="row">{{i}}</th>
+        <!-- Currency from. -->
         <td>{{currentHistory.currencyFrom}}</td>
+        <!-- Currency to. -->
         <td>{{currentHistory.currencyTo}}</td>
+        <!-- Sum to exchange. -->
         <td>{{currentHistory.currencyExchange}}</td>
+        <!-- Exchanged sum. -->
         <td>{{currentHistory.exchangeSum}}</td>
+        <!-- Time of the exchange. -->
         <td>{{currentHistory.exchangedAt}}</td>
       </tr>
 
