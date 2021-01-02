@@ -42,8 +42,7 @@ export class CurrencyComponent implements OnInit {
    *  @param router
    */
   constructor(private formBuilder: FormBuilder, 
-    private currencyService: CurrencyService, 
-    private router: Router, 
+    private currencyService: CurrencyService,
     private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {

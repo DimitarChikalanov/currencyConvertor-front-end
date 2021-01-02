@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
 
+  /* Subscription. */
   private subscriptions = new Subscription();
   /* User instance. */
   user: User;
@@ -20,13 +21,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   /**
    * @constructor
    * 
-   * @param route 
    * @param userService - makes requests to the backend
-   * @param router - redirects the user to different pages
    */
-  constructor(private route: ActivatedRoute, 
-    private userService: UserService,
-    private router: Router) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     /* Creates a new user instance which will carry the information from the GET request. */

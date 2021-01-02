@@ -10,6 +10,7 @@ import { UpdateUserComponent } from './components/user-components/update-user/up
 import { AdminBoardComponent } from './components/admin-components/admin-board/admin-board.component';
 import { AddNewCurrencyComponent } from './components/admin-components/add-new-currency/add-new-currency.component';
 import { DeleteCurrencyComponent } from './components/admin-components/delete-currency/delete-currency.component';
+import { ExchangeHistoryComponent } from './components/exchange-history/exchange-history.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,7 +37,8 @@ import { RouterModule } from '@angular/router';
     UpdateUserComponent,
     AdminBoardComponent,
     AddNewCurrencyComponent,
-    DeleteCurrencyComponent
+    DeleteCurrencyComponent,
+    ExchangeHistoryComponent
   ],
   
   /* Imports different modules. 

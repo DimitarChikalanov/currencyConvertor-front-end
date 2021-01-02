@@ -1,0 +1,27 @@
+<table class="table table-striped table-dark">
+
+    <thead>
+      <tr>
+        <th scope="col">№</th>
+        <th scope="col">Converted From</th>
+        <th scope="col">Converted To</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Converted Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let currentHistory of historyList; let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{currentHistory.currencyFrom}}</td>
+        <td>{{currentHistory.currencyTo}}</td>
+        <td>{{currentHistory.currencyExchange}}</td>
+        <td>{{currentHistory.exchangeSum}}</td>
+        <td>{{currentHistory.exchangedAt}}</td>
+      </tr>
+
+    </tbody>
+
+</table>
