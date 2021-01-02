@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class UserProfileComponent implements OnInit, OnDestroy {
 
   /* Subscription. */
-  private subscriptions = new Subscription();
+  private subscription = new Subscription();
   /* User instance. */
   user: User;
   /* User's roles. */
@@ -29,12 +29,12 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     /* Creates a new user instance which will carry the information from the GET request. */
     this.user = new User();
     /* GET request to the backend. */
-    this.subscriptions.add(this.userService.getUserProfile().subscribe(data => {
+    this.subscription.add(this.userService.getUserProfile().subscribe(data => {
       this.user = data;
     }));
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

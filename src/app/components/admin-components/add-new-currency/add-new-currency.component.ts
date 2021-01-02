@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import NewCurrency from 'src/app/entities/NewCurrency';
 import { AdminService } from 'src/app/services/admin-service/admin.service';
@@ -28,9 +27,9 @@ export class AddNewCurrencyComponent implements OnInit, OnDestroy {
    * @constructor
    * 
    * @param adminService
+   * @param fb
    */
   constructor(private adminService: AdminService,
-    private router: Router,
     private fb: FormBuilder) { }
   
   /**

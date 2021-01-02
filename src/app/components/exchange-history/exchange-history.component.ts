@@ -1,13 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ExchangeHistoryService } from 'src/app/services/currency-service/exchange-history.service';
 import ExchangeHistory from 'src/app/entities/ExchangeHistory';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-exchange-history',
   templateUrl: './exchange-history.component.html',
   styleUrls: ['./exchange-history.component.css']
 })
-export class ExchangeHistoryComponent implements OnInit {
+export class ExchangeHistoryComponent implements OnInit, OnDestroy {
+
+  /* Subscription. */
+  private subscription = new Subscription();
 
   /* Represents the child component */
   @Input('historydetails')
@@ -35,13 +39,16 @@ export class ExchangeHistoryComponent implements OnInit {
    */
   getHistory(): ExchangeHistory[] {
 
-    this.exchangeHistoryService.getAllHistory().subscribe(data => {
+    this.subscription.add(this.exchangeHistoryService.getAllHistory().subscribe(data => {
       data.forEach((currentHistory) => {
         this.historyList.push(currentHistory);
       })
-    });
+    }));
 
     return this.historyList;
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

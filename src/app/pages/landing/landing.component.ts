@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/auth/_services/token-storage.service';
 
 @Component({
@@ -18,8 +17,7 @@ export class LandingComponent implements OnInit {
    * @param tokenStorageService 
    * @param router 
    */
-  constructor(private tokenStorageService: TokenStorageService, 
-    private router: Router) { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     /* Checks if a token is present - if a token is present, that means the user is logged in. */

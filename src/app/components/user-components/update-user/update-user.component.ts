@@ -13,6 +13,7 @@ export class UpdateUserComponent implements OnInit {
 
   /* User instance. */
   user: User = new User();
+  
   updateSuccess = false;
 
   /**
