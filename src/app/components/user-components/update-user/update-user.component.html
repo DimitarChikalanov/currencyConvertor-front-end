@@ -38,12 +38,13 @@
 
         <!-- Password Input Field. -->
         <div class="form-group indianred-text-color">
-            <label>Password</label>
-            <input  type="text" 
+            <label>Please Type Your Password:</label>
+            <input  type="password" 
                     class="form-control" 
                     id="password"
                     [(ngModel)] = "user.password" 
-                    name="password">
+                    name="password"
+                    required>
         </div>
 
         <!-- Submit Form Button. (Update)-->

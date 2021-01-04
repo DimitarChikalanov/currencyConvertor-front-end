@@ -30,6 +30,8 @@ export class UpdateUserComponent implements OnInit {
     this.route.params.subscribe(data => {
       this.userService.getUserProfile().subscribe((data) => {
         this.user = data;
+
+        this.user.password = '';
       });
     })
   }
