@@ -85,5 +85,10 @@
       <div class="alert alert-success" *ngIf="isSuccessful">
         You successfully added a new currency!
       </div>
+
+      <!-- Failed adding a new currency. -->
+      <div class="alert alert-danger" *ngIf="addCurrencyFailed">
+        Currency already exists!
+      </div>
     </div>
   </div>
